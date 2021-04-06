@@ -1,0 +1,10 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ezaragozasolutel/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true 37529482379a npm run test
